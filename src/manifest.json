@@ -1,0 +1,18 @@
+{
+    "name": "focusWo",
+    "description": "Focus Words in Article",
+    "version": "1.2",
+    "manifest_version": 2,
+    "browser_action": {
+      "default_popup": "index.html",
+      "default_icon": "assets/icon_128.png"
+    },
+    "permissions": [
+      "activeTab",
+      "<all_urls>"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "icons": {
+      "128": "assets/icon_128.png"
+    }
+  }

@@ -1,0 +1,20 @@
+{
+  "name": "focus-wo-extension",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cp src/manifest.json dist/ && cp src/assets/* dist/assets/",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.1.2",
+    "@vue/compiler-sfc": "^3.0.5",
+    "vite": "^2.0.0-beta.50"
+  },
+  "volta": {
+    "node": "15.0.1"
+  }
+}
