@@ -13,7 +13,7 @@ const { count } = defineProps({
 });
 
 const status = count < 10 ? "low" : count < 20 ? "medium" : "high";
-const className = `word ${status}`;
+const className = `word ${status} animate__animated animate__bounceIn`;
 </script>
 
 <style scoped>
