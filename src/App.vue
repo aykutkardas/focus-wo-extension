@@ -1,25 +1,38 @@
 <template>
-  <WordGroup :words="state.words" />
+  <WordGroup :words="words" />
 </template>
 
-<script setup>
-import { onMounted, reactive } from "vue";
+<script>
+import { reactive, onMounted } from "vue";
 import WordGroup from "./components/WordGroup.vue";
-
 import wordCounter from "./utils/word-counter.js";
 
-let state = reactive({ words: [] });
-
-chrome?.tabs?.executeScript(
-  { code: "(function(){return document.body.innerText})();" },
-  ([results]) => {
-    const parsedWords = wordCounter(results);
-    const words = Object.entries(parsedWords).sort(function (a, b) {
-      return b[1] - a[1];
+export default {
+  name: 'App',
+  components: {
+    WordGroup
+  },
+  setup() {
+    const state = reactive({
+      words: []
     });
-    state.words = words;
+
+    onMounted(() => {
+      chrome?.tabs?.executeScript(
+        { code: "(function(){return document.body.innerText})();" },
+        ([results]) => {
+          const parsedWords = wordCounter(results);
+          const words = Object.entries(parsedWords).sort(function (a, b) {
+            return b[1] - a[1];
+          });
+          state.words = words;
+        }
+      );
+    });
+
+    return state;
   }
-);
+}
 </script>
 
 <style>

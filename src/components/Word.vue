@@ -4,16 +4,26 @@
   </div>
 </template>
 
-<script setup>
-import { defineProps } from "vue";
+<script>
+import { computed } from "vue";
 
-const { count } = defineProps({
-  word: String,
-  count: Number,
-});
+export default {
+  name: 'Word',
+  props: {
+    word: String,
+    count: Number
+  },
+  setup(props) {
+    const className = computed(() => {
+      const status = props.count < 10 ? "low" : props.count < 20 ? "medium" : "high";
+      return `word ${status} animate__animated animate__bounceIn`;
+    });
 
-const status = count < 10 ? "low" : count < 20 ? "medium" : "high";
-const className = `word ${status} animate__animated animate__bounceIn`;
+    return {
+      className
+    };
+  }
+}
 </script>
 
 <style scoped>

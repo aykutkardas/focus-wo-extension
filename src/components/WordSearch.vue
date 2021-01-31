@@ -9,12 +9,13 @@
   </div>
 </template>
 
-<script setup>
-import { defineProps } from "vue";
-
-defineProps({
-  onChange: Function,
-});
+<script>
+export default {
+  name: 'WordSearch',
+  props: {
+    onChange: Function
+  }
+}
 </script>
 
 <style scoped>
