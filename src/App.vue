@@ -32,5 +32,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 400px;
+  max-height: 500px;
+  margin-top: 63px;
+  padding-top: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#app::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+#app::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+
+#app::-webkit-scrollbar-thumb {
+  background-color: #986fd8; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
 }
 </style>
